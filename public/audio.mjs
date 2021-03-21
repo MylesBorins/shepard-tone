@@ -13,11 +13,14 @@ limitations under the License.
 const oscillators = [];
 const step = 0.1;
 
+const MIN_FREQ = 440;
+const MAX_FREQ = 880;
+
 function makeOscillators(context, gain) {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 4; i++) {
     var osc = context.createOscillator();
     osc.type = 'square';
-    osc.frequency.value = 40 + i * 0.1111; // value in hertz
+    osc.frequency.value = 440 + (i * 30); // value in hertz
     osc.connect(gain);
     osc.start();
     oscillators.push(osc);
@@ -27,6 +30,7 @@ function makeOscillators(context, gain) {
 function stepOscillators(steps=1) {
   oscillators.forEach((osc) => {
     osc.frequency.value = osc.frequency.value + (step * steps);
+    if (osc.frequency.value > MAX_FREQ) osc.frequency.value = MIN_FREQ + (osc.frequency.value - MAX_FREQ);
   });
 }
 
