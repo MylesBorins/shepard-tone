@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-import { initAudio, stepOscillators } from './audio.mjs';
+import { initAudio, stepVoices } from './audio.mjs';
 import { initScroll, stepScroll } from './infinite-scroll.mjs'
 
 let audioContext;
@@ -55,5 +55,5 @@ document.body.onscroll = function onscroll() {
     maxY = lastY;
     stepScroll();
   }
-  stepOscillators(diff);
+  stepVoices(diff);
 }
