@@ -1,6 +1,6 @@
 {
-  "name": "start-here",
-  "version": "4.0.0",
+  "name": "shepard-tone",
+  "version": "0.0.1",
   "description": "does alot of nothing",
   "scripts": {
     "test": "npm run lint",
